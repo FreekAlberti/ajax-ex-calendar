@@ -27,14 +27,12 @@
   </div>
 
   <script id="entry-template2" type="text/x-handlebars-template">
-    <ul class="giorni-del-mese">
-      <li class="day holiday">{{giorno}} {{mese}}</li>
-    </ul>
+      <li class="day" data-data="{{data}}">{{giorno}} {{mese}}</li>
   </script>
 
-  <div id="calendario">
+  <ul id="calendario" class="giorni-del-mese">
 
-  </div>
+  </ul>
 
   <script src="js/script.js" charset="utf-8"></script>
 </body>

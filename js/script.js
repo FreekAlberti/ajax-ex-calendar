@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-  var dataInizio = "2018-02-01";
+  var dataInizio = "2018-01-01";
   var giorniMese = moment(dataInizio).daysInMonth();
 
   $.ajax(
@@ -23,7 +23,7 @@ $(document).ready(function() {
     }
   );
 
-  // handlebars
+  // handlebars1
 
   var source1 = $("#entry-template1").html();
   var template1 = Handlebars.compile(source1);
@@ -36,13 +36,17 @@ $(document).ready(function() {
 
   $("#headerCalendario").append(html1);
 
+  // handlebars2
+
   var source2 = $("#entry-template2").html();
   var template2 = Handlebars.compile(source2);
 
   for (var i = 1; i <= giorniMese; i++) {
+    var data = moment(dataInizio).format("YYYY") + "-" + moment(dataInizio).format("MM") + "-" + i;
     var context2 = {
       "giorno" : i,
-      "mese" : moment(dataInizio).format("MMMM")
+      "mese" : moment(dataInizio).format("MMMM"),
+      "data" : data
     };
 
     var html2 = template2(context2);
