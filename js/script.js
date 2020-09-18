@@ -6,6 +6,10 @@
 
 
 $(document).ready(function() {
+
+  var dataInizio = "2018-01-01";
+  var giorniMese = moment(dataInizio).daysInMonth();
+
   $.ajax(
     {
       url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
@@ -18,15 +22,20 @@ $(document).ready(function() {
       }
     }
   );
+
+  // handlebars
+  var source = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+
+  for (var i = 1; i <= giorniMese; i++) {
+    var context = {
+      "giorno" : i,
+      "mese" : "Gennaio"
+    };
+
+    var html = template(context);
+
+    $("#calendario").append(html);
+  }
+
 });
-
-var source = $("#entry-template").html();
-var template = Handlebars.compile(source);
-
-var context = {
-  title: "My New Post",
-  body: "This is my first post!"
-};
-var html = template(context);
-
-$("#calendario").append(html);

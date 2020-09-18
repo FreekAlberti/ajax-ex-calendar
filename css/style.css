@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .selezione-mese {
   margin-top: 30px;
   display: flex;
@@ -27,6 +26,12 @@
 
 #calendario {
   display: flex;
-  justify-content: center;
-  margin-top: 35px;
+  flex-direction: column;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.holiday {
+  font-weight: bold;
+  color: red;
 }

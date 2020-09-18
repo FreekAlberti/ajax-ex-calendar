@@ -15,16 +15,15 @@
     <div class="selezione-mese">
       <h1 class="mese-selezionato">Gennaio 2018</h1>
       <div class="selettori">
-        <a class="bottone" href="#">&#60; precedente</a>
-        <a class="bottone" href="#">successivo &#62;</a>
+        <a class="prev bottone" href="#">&#60; precedente</a>
+        <a class="next bottone" href="#">successivo &#62;</a>
       </div>
     </div>
   </header>
 
   <script id="entry-template" type="text/x-handlebars-template">
     <ul class="giorni-del-mese">
-      <li>{{title}}</li>
-      <li>{{body}}</li>
+      <li class="day holiday">{{giorno}} {{mese}}</li>
     </ul>
   </script>
 
