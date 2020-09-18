@@ -6,5 +6,27 @@
 
 
 $(document).ready(function() {
-
+  $.ajax(
+    {
+      url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+      method: "GET",
+      success: function (data, stato) {
+        console.log(data.response);
+      },
+      error: function (richiesta, stato, errori) {
+      console.log(errori);
+      }
+    }
+  );
 });
+
+var source = $("#entry-template").html();
+var template = Handlebars.compile(source);
+
+var context = {
+  title: "My New Post",
+  body: "This is my first post!"
+};
+var html = template(context);
+
+$("#calendario").append(html);

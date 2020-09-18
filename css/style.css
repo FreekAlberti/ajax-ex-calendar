@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+.selezione-mese {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selettori {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottone {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+
+#calendario {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}

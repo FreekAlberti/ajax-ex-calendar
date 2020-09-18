@@ -11,6 +11,26 @@
   <title>Document</title>
 </head>
 <body>
+  <header>
+    <div class="selezione-mese">
+      <h1 class="mese-selezionato">Gennaio 2018</h1>
+      <div class="selettori">
+        <a class="bottone" href="#">&#60; precedente</a>
+        <a class="bottone" href="#">successivo &#62;</a>
+      </div>
+    </div>
+  </header>
+
+  <script id="entry-template" type="text/x-handlebars-template">
+    <ul class="giorni-del-mese">
+      <li>{{title}}</li>
+      <li>{{body}}</li>
+    </ul>
+  </script>
+
+  <div id="calendario">
+
+  </div>
 
   <script src="js/script.js" charset="utf-8"></script>
 </body>
