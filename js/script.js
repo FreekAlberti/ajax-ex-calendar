@@ -42,9 +42,13 @@ $(document).ready(function() {
   var template2 = Handlebars.compile(source2);
 
   for (var i = 1; i <= giorniMese; i++) {
-    var data = moment(dataInizio).format("YYYY") + "-" + moment(dataInizio).format("MM") + "-" + i;
+    var giorno = i;
+    if (giorno <= 9) {
+      giorno = "0" + giorno;
+    }
+    var data = moment(dataInizio).format("YYYY") + "-" + moment(dataInizio).format("MM") + "-" + giorno;
     var context2 = {
-      "giorno" : i,
+      "giorno" : giorno,
       "mese" : moment(dataInizio).format("MMMM"),
       "data" : data
     };
