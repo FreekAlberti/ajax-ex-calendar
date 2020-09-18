@@ -10,19 +10,6 @@ $(document).ready(function() {
   var dataInizio = "2018-01-01";
   var giorniMese = moment(dataInizio).daysInMonth();
 
-  $.ajax(
-    {
-      url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
-      method: "GET",
-      success: function (data, stato) {
-        console.log(data.response);
-      },
-      error: function (richiesta, stato, errori) {
-      console.log(errori);
-      }
-    }
-  );
-
   // handlebars1
 
   var source1 = $("#entry-template1").html();
@@ -58,4 +45,26 @@ $(document).ready(function() {
     $("#calendario").append(html2);
   }
 
+  $.ajax(
+    {
+      url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+      method: "GET",
+      success: function (data, stato) {
+        printHoliday(data.response);
+      },
+      error: function (richiesta, stato, errori) {
+        console.log(errori);
+      }
+    }
+  );
 });
+
+function printHoliday(holiday) {
+  for (var i = 0; i < holiday.length; i++) {
+    var festivitaData = holiday[i].date;
+    var festivitaNome = holiday[i].name;
+
+    $(".day[data-data='festivitaData']").addClass("holiday");
+    $(".day[data-data='festivitaData'] .holidayStyle").text(festivitaNome);
+  }
+}
