@@ -63,8 +63,7 @@ function printHoliday(holiday) {
   for (var i = 0; i < holiday.length; i++) {
     var festivitaData = holiday[i].date;
     var festivitaNome = holiday[i].name;
-
-    $(".day[data-data='festivitaData']").addClass("holiday");
-    $(".day[data-data='festivitaData'] .holidayStyle").text(festivitaNome);
+    $(".day[data-data=" + festivitaData + "]").addClass("holiday");
+    $(".day[data-data=" + festivitaData + "] .holidayStyle").text(" - " + festivitaNome);
   }
 }
