@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   <title>Document</title>
 </head>
 <body>
@@ -15,18 +16,20 @@
   <div class="selezione-mese">
     <h1 class="mese-selezionato"></h1>
     <div class="selettori">
-      <a class="prev bottone" href="#">&#60; precedente</a>
-      <a class="next bottone" href="#">successivo &#62;</a>
+      <i class="fas fa-arrow-circle-left prev"></i>
+      <i class="fas fa-arrow-circle-right next"></i>
     </div>
   </div>
 
   <script id="entry-template" type="text/x-handlebars-template">
-      <li class="day" data-data="{{data}}">{{giorno}} {{mese}} <span class="holidayStyle"></span></li>
+      <div class="day" data-data="{{data}}">{{giorno}} {{mese}}<br><span class="holidayStyle"></span></div>
   </script>
 
-  <ul id="calendario" class="giorni-del-mese">
+  <div class="wrapper">
+    <div id="calendario" class="giorni-del-mese">
 
-  </ul>
+    </div>
+  </div>
 
   <script src="js/script.js" charset="utf-8"></script>
 </body>

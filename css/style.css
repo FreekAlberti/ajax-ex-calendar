@@ -4,34 +4,65 @@
   box-sizing: border-box;
 }
 
+.wrapper {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  background-color: gray;
+}
 .selezione-mese {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: black;
+  color: #fff;
+  height: 15vh;
 }
 
 .selettori {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.bottone {
-  border: 1px solid black;
-  padding: 10px;
-  margin: 5px;
+.fas {
+  cursor: pointer;
+  color: green;
+  font-size: 20px;
+  margin: 0 30px;
 }
 
 #calendario {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 35px 0;
+  width: 80%;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 35px 0;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 100px;
+  width: calc(100% / 7);
+  background-color: #fff;
 }
 
 .holiday {
   font-weight: bold;
   color: red;
+  background-color: yellow;
+}
+
+.holidayStyle {
+  margin-top: 5px;
+  border: 1px solid black;
+  background-color: red;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px
 }

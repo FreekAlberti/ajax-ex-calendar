@@ -55,8 +55,14 @@ function printCalendar(dataInizio, giorniMese, holiday) {
     var festivitaData = holiday[i].date;
     var festivitaNome = holiday[i].name;
     $(".day[data-data=" + festivitaData + "]").addClass("holiday");
-    $(".day[data-data=" + festivitaData + "] .holidayStyle").text(" - " + festivitaNome);
+    $(".day[data-data=" + festivitaData + "] .holidayStyle").text(festivitaNome);
   }
+  $("span").each(function() {
+    if ($(this).text() == "") {
+      $(this).remove();
+    };
+  });
+
 }
 
 function chiamataAjax(dataInizio) {
