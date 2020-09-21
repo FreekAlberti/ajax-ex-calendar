@@ -6,43 +6,15 @@
 
 
 $(document).ready(function() {
-
-  var dataInizio = moment("2018-12-01");
-  var giorniMese = moment(dataInizio).daysInMonth();
-  var month = dataInizio.format("M") - 1;
-
-  $.ajax(
-    {
-      "url": "https://flynn.boolean.careers/exercises/api/holidays",
-      "data": {
-        "year": 2018,
-        "month": month
-      },
-      "method": "GET",
-      "success": function (data, stato) {
-        printCalendar(dataInizio, giorniMese);
-        printHoliday(data.response);
-      },
-      "error": function (richiesta, stato, errori) {
-        console.log(errori);
-      }
-    }
-  );
+  var dataInizio = moment("2018-01-01");
+  chiamataAjax(dataInizio);
 });
 
 // FUNCTION
 
-function printHoliday(holiday) {
-  for (var i = 0; i < holiday.length; i++) {
-    var festivitaData = holiday[i].date;
-    var festivitaNome = holiday[i].name;
-    $(".day[data-data=" + festivitaData + "]").addClass("holiday");
-    $(".day[data-data=" + festivitaData + "] .holidayStyle").text(" - " + festivitaNome);
-  }
-}
-
-function printCalendar(dataInizio, giorniMese) {
+function printCalendar(dataInizio, giorniMese, holiday) {
   $("h1").text(dataInizio.format("MMMM YYYY"));
+  $("h1").attr("data-mese", dataInizio.format("MM"));
   var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
   for (var i = 1; i <= giorniMese; i++) {
@@ -59,4 +31,31 @@ function printCalendar(dataInizio, giorniMese) {
     var html = template(context);
     $("#calendario").append(html);
   }
+  for (var i = 0; i < holiday.length; i++) {
+    var festivitaData = holiday[i].date;
+    var festivitaNome = holiday[i].name;
+    $(".day[data-data=" + festivitaData + "]").addClass("holiday");
+    $(".day[data-data=" + festivitaData + "] .holidayStyle").text(" - " + festivitaNome);
+  }
+}
+
+function chiamataAjax(dataInizio) {
+  var giorniMese = moment(dataInizio).daysInMonth();
+  var month = dataInizio.format("M") - 1;
+  $.ajax(
+    {
+      "url": "https://flynn.boolean.careers/exercises/api/holidays",
+      "data": {
+        "year": 2018,
+        "month": month
+      },
+      "method": "GET",
+      "success": function (data, stato) {
+        printCalendar(dataInizio, giorniMese, data.response);
+      },
+      "error": function (richiesta, stato, errori) {
+        console.log(errori);
+      }
+    }
+  );
 }
