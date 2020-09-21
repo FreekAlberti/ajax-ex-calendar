@@ -8,6 +8,18 @@
 $(document).ready(function() {
   var dataInizio = moment("2018-01-01");
   chiamataAjax(dataInizio);
+
+  $(".prev").click(function() {
+      $(".day").remove();
+      dataInizio = dataInizio.subtract(1, "M");
+      chiamataAjax(dataInizio);
+  });
+
+  $(".next").click(function() {
+      $(".day").remove();
+      dataInizio = dataInizio.add(1, "M");
+      chiamataAjax(dataInizio);
+  });
 });
 
 // FUNCTION
