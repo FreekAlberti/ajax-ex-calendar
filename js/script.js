@@ -10,15 +10,23 @@ $(document).ready(function() {
   chiamataAjax(dataInizio);
 
   $(".prev").click(function() {
+    if (dataInizio.format("M") == 01) {
+      alert("Anno corrente terminato");
+    } else {
       $(".day").remove();
       dataInizio = dataInizio.subtract(1, "M");
       chiamataAjax(dataInizio);
+    }
   });
 
   $(".next").click(function() {
+    if (dataInizio.format("M") == 12) {
+      alert("Anno corrente terminato");
+    } else {
       $(".day").remove();
       dataInizio = dataInizio.add(1, "M");
       chiamataAjax(dataInizio);
+    }
   });
 });
 
